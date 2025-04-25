@@ -906,7 +906,7 @@ function setupEventListeners() {
             toastr.success('隐藏助手已启用');
             runFullHideCheckDebounced();
         } else {
-            console.log(`[${extensionName}] Extension disabled via toggle. Running full check to unhide everything if needed.");
+            console.log(`[${extensionName}] Extension disabled via toggle. Running full check to unhide everything if needed.`);
             toastr.warning('隐藏助手已禁用');
             // 当禁用时，运行一次全量检查，如果之前有隐藏，会取消隐藏
              runFullHideCheckDebounced();
