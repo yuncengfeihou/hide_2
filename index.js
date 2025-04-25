@@ -5,7 +5,7 @@ import { saveSettingsDebounced, eventSource, event_types, getRequestHeaders, cha
 
 import { groups } from "../../../group-chats.js";
 
-const extensionName = "hide_1";
+const extensionName = "hide_2";
 const defaultSettings = {
     // 全局默认设置
     enabled: true,
