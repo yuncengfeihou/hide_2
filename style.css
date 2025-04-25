@@ -4,30 +4,31 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 69%;
-    max-width: 400px;
-    background-color: rgba(0, 0, 0, 0.85);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    width: 90%; /* 稍微加宽以容纳更多元素 */
+    max-width: 450px; /* 最大宽度也稍稍增加 */
+    background-color: rgba(0, 0, 0, 0.88); /* 深一点背景 */
+    border: 1px solid rgba(255, 255, 255, 0.25); /* 边框稍明显 */
     border-radius: 8px;
     z-index: 1001;
-    padding: 15px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    padding: 15px 20px; /* 增加左右内边距 */
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.6); /* 阴影更明显 */
     display: none;
     color: #ffffff;
+    font-size: 14px; /* 基础字体稍大 */
 }
 
 /* 弹出对话框标题 */
 .hide-helper-popup-title {
-    font-size: 16px;
+    font-size: 17px; /* 标题更大 */
     font-weight: bold;
     margin-bottom: 15px;
     padding-bottom: 10px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3); /* 分割线更明显 */
     text-align: center;
     color: #ffffff;
 }
 
-/* 标签样式 */
+/* 标签样式 (扩展设置面板用) */
 .hide-helper-label {
     margin-right: 10px;
     font-weight: bold;
@@ -35,75 +36,187 @@
     font-size: 13px;
 }
 
-/* 当前设置显示 */
+/* 当前设置显示区域 */
 .hide-helper-current {
-    margin: 30px 0;
-    padding: 8px;
+    margin: 20px 0; /* 上下间距调整 */
+    padding: 10px;
     border-radius: 4px;
-    background-color: transparent;
+    background-color: rgba(255, 255, 255, 0.05); /* 浅背景色 */
     text-align: left;
-    color: #ffffff;
+    color: #e0e0e0; /* 稍浅文本色 */
     font-size: 13px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+.hide-helper-current strong {
+    color: #ffffff; /* 强调部分用白色 */
+}
+/* 当前生效值/模式的 span */
+#hide-current-value,
+#hide-current-mode-display {
+    font-weight: bold;
+    color: #68c3e0; /* 突出显示值和模式 */
+    margin: 0 3px;
+}
+
+
+/* 输入行容器 */
+.hide-helper-input-row {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* 元素间距 */
+    margin-bottom: 20px; /* 与下方间距 */
+    justify-content: space-between; /* 让元素分布开 */
 }
 
 /* 输入框样式 */
 #hide-last-n {
-    flex: 0 1 150px;
-    padding: 6px 12px;
+    flex: 1 1 auto; /* 允许输入框伸缩 */
+    min-width: 80px; /* 最小宽度 */
+    padding: 8px 12px; /* 增加内边距 */
     margin: 0;
     border-radius: 4px;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    background-color: rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.3); /* 边框 */
+    background-color: rgba(0, 0, 0, 0.4); /* 背景 */
     color: #ffffff;
-    font-size: 13px;
-    height: 35px;
+    font-size: 14px; /* 字体 */
+    height: 38px; /* 高度调整 */
     box-sizing: border-box;
+    text-align: center;
+}
+/* 移除 number 输入框的默认箭头 (Webkit/Mozilla) */
+#hide-last-n::-webkit-outer-spin-button,
+#hide-last-n::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+#hide-last-n[type=number] {
+  -moz-appearance: textfield;
 }
 
-/* 按钮样式 */
+
+/* 通用按钮样式 */
 .hide-helper-btn {
     display: inline-block;
-    padding: 6px 14px;
+    padding: 0 16px; /* 左右内边距 */
     border-radius: 4px;
     border: none;
-    background-color: #808080;
+    background-color: #5a5a5a; /* 稍深灰色 */
     color: #ffffff;
-    font-size: 13px;
+    font-size: 13px; /* 按钮字体 */
+    font-weight: 500;
     cursor: pointer;
-    transition: background-color 0.2s ease;
-    height: 35px;
+    transition: background-color 0.2s ease, box-shadow 0.2s ease;
+    height: 38px; /* 统一高度 */
+    line-height: 38px; /* 垂直居中文本 */
     box-sizing: border-box;
+    text-align: center;
+    white-space: nowrap; /* 防止按钮文字换行 */
 }
 
 .hide-helper-btn:hover {
-    background-color: #666666;
+    background-color: #6f6f6f; /* 悬停颜色 */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.3); /* 悬停阴影 */
+}
+.hide-helper-btn:active {
+    background-color: #4a4a4a; /* 点击颜色 */
+}
+.hide-helper-btn:disabled {
+    background-color: #444;
+    color: #888;
+    cursor: not-allowed;
+    box-shadow: none;
 }
 
-/* 底部按钮容器 */
+/* 底部容器: 使用 Flexbox */
 .hide-helper-popup-footer {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-between; /* 两端对齐 */
+    align-items: center; /* 垂直居中 */
+    margin-top: 25px; /* 与上方内容间距 */
+    padding-top: 15px; /* 顶部内边距 */
+    border-top: 1px solid rgba(255, 255, 255, 0.3); /* 分割线 */
+    gap: 15px; /* 元素间距 */
+}
+
+/* 模式选择器容器 */
+.hide-helper-mode-selector-container {
+    display: flex;
     align-items: center;
-    margin-top: 30px;
-    padding-top: 10px;
-    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    gap: 8px;
 }
 
-/* 关闭按钮 */
-.hide-helper-close-btn {
-    display: block;
-    padding: 6px 20px;
-    background-color: #808080;
-    color: #ffffff;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
+/* 模式选择器标签 */
+.hide-helper-mode-label {
     font-size: 13px;
-    height: 35px;
-    box-sizing: border-box;
-    margin: 20px auto 0;
+    color: #cccccc;
+    white-space: nowrap; /* 防止标签换行 */
 }
 
+/* 模式选择器下拉框 */
+.hide-helper-mode-select {
+    padding: 6px 10px;
+    border-radius: 4px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    background-color: rgba(0, 0, 0, 0.4);
+    color: #ffffff;
+    font-size: 13px;
+    height: 38px; /* 与按钮等高 */
+    box-sizing: border-box;
+    cursor: pointer;
+    min-width: 90px; /* 最小宽度 */
+}
+.hide-helper-mode-select:hover {
+    border-color: rgba(255, 255, 255, 0.5);
+}
+
+
+/* 关闭按钮 (现在使用通用按钮样式，只需微调) */
+.hide-helper-close-btn {
+    /* 继承 .hide-helper-btn 样式 */
+    /* 如果需要特殊背景色可以覆盖 */
+    background-color: #707070; /* 关闭按钮用不同的灰色 */
+}
 .hide-helper-close-btn:hover {
-    background-color: #666666;
+    background-color: #858585;
+}
+
+/* 行内抽屉样式 (来自你的原始代码，保持不变) */
+.hide-helper-container .inline-drawer {
+    /* ... */
+}
+.hide-helper-container .inline-drawer-toggle {
+    /* ... */
+}
+.hide-helper-container .inline-drawer-content {
+    /* ... */
+}
+.hide-helper-toggle-row {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+#hide-helper-toggle { /* 全局开关样式 */
+    padding: 5px 8px;
+    border-radius: 4px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    background-color: rgba(0, 0, 0, 0.4);
+    color: #ffffff;
+    font-size: 13px;
+    margin-left: auto; /* 推到右边 */
+}
+
+/* 隐藏消息的样式 (通过 is_system 属性) */
+.mes[is_system="true"] {
+    /* display: none !important; */ /* 或者使用更平滑的方式 */
+    opacity: 0.3; /* 半透明 */
+    /* transition: opacity 0.3s ease-out; */ /* 可选的过渡效果 */
+    pointer-events: none; /* 阻止交互 */
+    max-height: 10px; /* 尝试折叠 */
+    overflow: hidden;
+    margin-top: -5px; /* 减少间距 */
+    margin-bottom: -5px;
+    padding-top: 0;
+    padding-bottom: 0;
+    border-top: none;
+    border-bottom: none;
 }
