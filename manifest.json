@@ -1,0 +1,11 @@
+{
+    "display_name": "隐藏助手（修正hide_1.0）",
+    "loading_order": 3,
+    "requires": [],
+    "optional": [],
+    "js": "index.js",
+    "css": "style.css",
+    "author": "uhhhh15",
+    "version": "1.4.4",
+    "description": "高效批量隐藏/显示消息的工具"
+}
